@@ -1,13 +1,7 @@
-
 import React from 'react';
-import { Product } from '../types';
 import SellerBadge from './SellerBadge';
 
-interface ProductGridProps {
-  products: Product[];
-}
-
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
+const ProductGrid = ({ products }) => {
   if (products.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-gray-500">
