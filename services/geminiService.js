@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Type } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
@@ -7,7 +6,7 @@ export const geminiService = {
   /**
    * Generates AI-powered search suggestions or refinements for items.
    */
-  async getSearchSuggestions(query: string): Promise<string[]> {
+  async getSearchSuggestions(query) {
     if (!query || query.length < 2) return [];
     
     try {
@@ -36,7 +35,7 @@ export const geminiService = {
   /**
    * Generates a professional product description for the seller.
    */
-  async generateProductDescription(title: string, category: string): Promise<string> {
+  async generateProductDescription(title, category) {
     try {
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
