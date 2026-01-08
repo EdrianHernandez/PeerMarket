@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import MarketplaceHeader from './components/MarketplaceHeader';
 import CategoryIcons from './components/CategoryIcons';
@@ -6,9 +5,9 @@ import ProductGrid from './components/ProductGrid';
 import { MOCK_PRODUCTS, CATEGORIES } from './constants';
 import { geminiService } from './services/geminiService';
 
-const App: React.FC = () => {
+const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [isSellModalOpen, setIsSellModalOpen] = useState(false);
   
   // Filtering logic
@@ -153,7 +152,7 @@ const App: React.FC = () => {
 };
 
 // Simplified Sell Item Form with AI feature
-const SellItemForm: React.FC<{ onCancel: () => void }> = ({ onCancel }) => {
+const SellItemForm = ({ onCancel }) => {
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState(CATEGORIES[0].name);
   const [description, setDescription] = useState('');
