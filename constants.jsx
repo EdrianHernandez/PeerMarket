@@ -1,7 +1,4 @@
-
-import { Category, Product } from './types';
-
-export const CATEGORIES: Category[] = [
+export const CATEGORIES = [
   { id: '1', name: 'Electronics', icon: '📱' },
   { id: '2', name: 'Furniture', icon: '🛋️' },
   { id: '3', name: 'Vehicles', icon: '🚗' },
@@ -16,7 +13,7 @@ export const CATEGORIES: Category[] = [
   { id: '12', name: 'Books', icon: '📚' },
 ];
 
-export const MOCK_PRODUCTS: Product[] = [
+export const MOCK_PRODUCTS = [
   {
     id: 'p1',
     title: 'Vintage Film Camera',
