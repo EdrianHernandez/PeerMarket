@@ -1,13 +1,7 @@
-
 import React from 'react';
 import { CATEGORIES } from '../constants';
 
-interface CategoryIconsProps {
-  selectedCategoryId: string | null;
-  onSelectCategory: (id: string | null) => void;
-}
-
-const CategoryIcons: React.FC<CategoryIconsProps> = ({ selectedCategoryId, onSelectCategory }) => {
+const CategoryIcons = ({ selectedCategoryId, onSelectCategory }) => {
   return (
     <div className="bg-white border-b border-gray-200 sticky top-16 z-30">
       <div className="max-w-7xl mx-auto px-4">
