@@ -1,18 +1,11 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { geminiService } from '../services/geminiService';
 
-interface MarketplaceHeaderProps {
-  searchTerm: string;
-  onSearch: (term: string) => void;
-  onSellClick: () => void;
-}
-
-const MarketplaceHeader: React.FC<MarketplaceHeaderProps> = ({ searchTerm, onSearch, onSellClick }) => {
+const MarketplaceHeader = ({ searchTerm, onSearch, onSellClick }) => {
   const [inputValue, setInputValue] = useState(searchTerm);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [suggestions, setSuggestions] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-  const searchRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef(null);
 
   useEffect(() => {
     const fetchSuggestions = async () => {
@@ -30,8 +23,8 @@ const MarketplaceHeader: React.FC<MarketplaceHeaderProps> = ({ searchTerm, onSea
 
   // Handle outside click to close suggestions
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
         setIsFocused(false);
       }
     };
@@ -39,12 +32,12 @@ const MarketplaceHeader: React.FC<MarketplaceHeaderProps> = ({ searchTerm, onSea
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
     onSearch(e.target.value);
   };
 
-  const handleSuggestionClick = (s: string) => {
+  const handleSuggestionClick = (s) => {
     setInputValue(s);
     onSearch(s);
     setIsFocused(false);
