@@ -1,13 +1,6 @@
-
 import React from 'react';
-import { Seller } from '../types';
 
-interface SellerBadgeProps {
-  seller: Seller;
-  className?: string;
-}
-
-const SellerBadge: React.FC<SellerBadgeProps> = ({ seller, className = "" }) => {
+const SellerBadge = ({ seller, className = "" }) => {
   return (
     <div className={`seller-info flex items-center space-x-2 ${className}`}>
       <img 
